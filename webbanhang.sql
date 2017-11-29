@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2017 lúc 07:28 AM
+-- Thời gian đã tạo: Th10 29, 2017 lúc 10:43 AM
 -- Phiên bản máy phục vụ: 10.1.28-MariaDB
 -- Phiên bản PHP: 7.1.11
 
@@ -270,6 +270,28 @@ INSERT INTO `productsubcategories` (`id`, `sub_name`, `CategoryId`, `sub_slug`) 
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `slide`
+--
+
+CREATE TABLE `slide` (
+  `id` int(11) NOT NULL,
+  `slide_derc` varchar(225) DEFAULT NULL,
+  `slide_img` varchar(225) DEFAULT NULL,
+  `slide_status` int(11) DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `slide`
+--
+
+INSERT INTO `slide` (`id`, `slide_derc`, `slide_img`, `slide_status`) VALUES
+(9, NULL, 'q5Xdos-slide-1.jpg', 1),
+(10, NULL, 'Yi87E3-slide-2.jpg', 1),
+(11, NULL, 'CZKUv8-slide-3.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `users`
 --
 
@@ -358,6 +380,12 @@ ALTER TABLE `productsubcategories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `slide`
+--
+ALTER TABLE `slide`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -426,6 +454,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `productsubcategories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT cho bảng `slide`
+--
+ALTER TABLE `slide`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
