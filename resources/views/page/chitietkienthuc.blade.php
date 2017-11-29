@@ -23,14 +23,17 @@
 			<!-- center col -->
 			<div class="col-md-8 col-lg-9 col-xl-9">
 				<div class="content offset-0">
-					<h1 class="block-title text-left">KIẾN THỨC</h1>
+					<h1 class="block-title text-left">{!!$kienthuc->news_title!!}</h1>
 				</div>
 				<div class="content">
 					<hr>
 				</div>
 				<div class="row">
-					<div class="">
-						{{$kienthuc->news_derc}}
+					<div class="news-derc">
+						{!! $kienthuc->news_derc !!}
+					</div>
+					<div class="news-detail">
+						{!! $kienthuc->news_detail!!}
 					</div>
 				</div>
 				<div class="content">
