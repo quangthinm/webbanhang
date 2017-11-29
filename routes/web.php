@@ -38,6 +38,10 @@ Route::get('mi-pham', function () {
     return view('page.sanpham', compact('sanpham', 'danhmuccon'));
 });
 
+Route::get('san-pham', function () {
+    return view('page.chitietsanpham');
+});
+
 Route::get('dinh-duong-quy', function () {
 	$sanpham = sanpham::where('Product_Cate', '3')->get();
 	$danhmuccon = danhmuccon::where('CategoryId','3')->get();

@@ -86,10 +86,10 @@
 			@foreach($kienthuc as $kt)
 				<div class="col-xs-6 col-sm-4">
 					<div class="blog-thumb">
-						<a class="img" href="blog_single_post_01.html">
+						<a class="img" href="kien-thuc/{{$kt->id}}/{{$kt->slug}}.html">
 						<img src="asset/news/{{$kt->news_img}}" alt="">
 						</a>
-						<a class="title" href="">{{$kt->news_title}}</a>
+						<a class="title" href="kien-thuc/{{$kt->id}}/{{$kt->slug}}.html">{{$kt->news_title}}</a>
 						<p class="data">
 							by <a href="#">StyList</a> on {{$kt->created_at}}</b>
 						</p>
