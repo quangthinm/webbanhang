@@ -13,6 +13,7 @@
 use App\sanpham;
 use App\danhmuccon;
 use App\kienthuc;
+use App\slide;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,7 +22,8 @@ Route::get('/', function () {
 Route::get('trang-chu', function () {
 	$sanpham = sanpham::limit(8)->get();
 	$kienthuc = kienthuc::limit(3)->orderBy('id', 'DESC')->get();
-    return view('page.trangchu', compact('sanpham', 'kienthuc'));
+	$slide = slide::all();
+    return view('page.trangchu', compact('sanpham', 'kienthuc', 'slide'));
 });
 
 Route::get('thuc-pham-chuc-nang', function () {
@@ -147,5 +149,17 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::post('sua/{id}','kienthucController@postSua');
 
 		Route::get('xoa/{id}','kienthucController@getXoa');
+	});
+
+	Route::group(['prefix'=>'slide'],function(){
+		Route::get('danh-sach','slideController@getDanhsach')->name('danhsachslide');
+
+		Route::get('them','slideController@getThem')->name('themslide');
+		Route::post('them','slideController@postThem');
+
+		Route::get('sua/{id}','slideController@getSua');
+		Route::post('sua/{id}','slideController@postSua');
+
+		Route::get('xoa/{id}','slideController@getXoa');
 	});
 });

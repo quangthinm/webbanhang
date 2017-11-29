@@ -9,7 +9,7 @@ use App\danhmuccon;
 
 class sanphamController extends Controller
 {
-     public function getDanhsach()
+    public function getDanhsach()
     {
     	$danhsachsanpham = sanpham::orderBy('id', 'DESC')->get();
     	return view('admin/sanpham/danhsach', compact('danhsachsanpham'));

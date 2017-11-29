@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\kienthuc;
+use App\slide;
 
 class pageController extends Controller
 {
@@ -12,4 +13,5 @@ class pageController extends Controller
     	$kienthuc = kienthuc::find($Request->id);;
     	return view('page.chitietkienthuc', compact('kienthuc'));
     }
+
 }
