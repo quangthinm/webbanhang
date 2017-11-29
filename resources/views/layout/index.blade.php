@@ -25,12 +25,11 @@
 		<script src="asset/js/jquery-2.1.4.min.js"></script>
 		<script src="asset/js/bootstrap.min.js"></script>
 		<script src="asset/js/jquery.plugin.min.js"></script>
-		<script src="asset/js/jquery.countdown.min.js"></script>
-		<script src="asset/js/slick.min.js"></script>
-		<script src="asset/js/jquery.themepunch.tools.min.js"></script>
-		<script src="asset/js/jquery.themepunch.revolution.min.js"></script>
+		<script src="asset/js/1slick.min.js"></script>
+		<script src="asset/js/1jquery.themepunch.tools.min.js"></script>
+		<script src="asset/js/1jquery.themepunch.revolution.min.js"></script>
 		<script src="asset/js/panelmenu.js"></script>
-		<script src="asset/js/quick-view.js"></script>
+		<script src="asset/js/1quick-view.js"></script>
 		<script src="asset/js/main.js"></script>
 		
 	</body>

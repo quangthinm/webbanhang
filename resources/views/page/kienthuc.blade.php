@@ -40,7 +40,7 @@
 								<p class="data">
 									by <a href="#">StyList</a> on {{$kt->created_at}}
 								</p>
-								<div>
+								<div class="col-sm-12">
 									{{$kt->news_derc}}
 								</div>
 							</div>
