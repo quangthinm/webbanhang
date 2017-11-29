@@ -24,7 +24,7 @@ Route::get('trang-chu', function () {
     return view('page.trangchu', compact('sanpham', 'kienthuc'));
 });
 
-Route::get('thuc-pham-chuc-nang', function () {
+Route::get('thuc-pham-chuc-nang', function() {
 	$sanpham = sanpham::where('Product_Cate', '1')->get();
 	$danhmuccon = danhmuccon::where('CategoryId','1')->get();
     return view('page.sanpham', compact('sanpham', 'danhmuccon'));
