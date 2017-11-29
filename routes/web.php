@@ -47,7 +47,7 @@ Route::get('kien-thuc', function () {
     return view('page.kienthuc', compact('kienthuc'));
 });
 
-Route::get('kien-thuc/{id}/{tit}', 'kienthucController@getChitiet')->name('chitietkienthuc');
+Route::get('kien-thuc/{id}/{slug}', 'pageController@getChitiet')->name('chitietkienthuc');
 
 
 Route::get('gioi-thieu', function () {

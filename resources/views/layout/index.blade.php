@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>StyList - Responsive HTML5 Template</title>
+		<base href="{{asset('')}}"
 		<meta name="keywords" content="HTML5 Template">
 		<meta name="description" content="StyList - Responsive HTML5 Template">
 		<meta name="author" content="etheme.com">

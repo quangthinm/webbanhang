@@ -108,15 +108,4 @@ class kienthucController extends Controller
         $kienthuc -> delete($id);
         return redirect('admin/kienthuc/danh-sach')->with('thongbao','Đã xóa sản phẩm '.$kienthuc->news_title);
     }
-
-
-
-    //chi tiết
-
-    public function getChitiet(Request $Request)
-    {
-        $kienthuc = kienthuc::find($Request->id);
-        return view('page.chitietkienthuc', compact('kienthuc'));
-    }
-
 }

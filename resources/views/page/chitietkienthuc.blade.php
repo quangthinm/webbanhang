@@ -30,11 +30,7 @@
 				</div>
 				<div class="row">
 					<div class="">
-
-					</div>
-
-					<div class="">
-						{{$kienthuc->news_detail}}
+						{{$kienthuc->news_derc}}
 					</div>
 				</div>
 				<div class="content">
