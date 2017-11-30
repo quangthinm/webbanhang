@@ -14,6 +14,7 @@ use App\sanpham;
 use App\danhmuccon;
 use App\kienthuc;
 use App\slide;
+use App\danhmucsanpham;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,34 +25,35 @@ Route::get('trang-chu', function () {
 	$kienthuc = kienthuc::limit(3)->orderBy('id', 'DESC')->get();
 	$slide = slide::all();
     return view('page.trangchu', compact('sanpham', 'kienthuc', 'slide'));
-});
+})->name('trangchu');
 
 Route::get('thuc-pham-chuc-nang', function () {
 	$sanpham = sanpham::where('Product_Cate', '1')->get();
 	$danhmuccon = danhmuccon::where('CategoryId','1')->get();
-    return view('page.sanpham', compact('sanpham', 'danhmuccon'));
+	$danhmucsanpham = danhmucsanpham::where('id', '1')->first();
+    return view('page.sanpham', compact('sanpham', 'danhmuccon', 'danhmucsanpham'));
 });
 
 Route::get('mi-pham', function () {
 	$sanpham = sanpham::where('Product_Cate', '2')->get();
 	$danhmuccon = danhmuccon::where('CategoryId','2')->get();
-    return view('page.sanpham', compact('sanpham', 'danhmuccon'));
-});
-
-Route::get('san-pham', function () {
-    return view('page.chitietsanpham');
+    $danhmucsanpham = danhmucsanpham::where('id', '2')->first();
+    return view('page.sanpham', compact('sanpham', 'danhmuccon', 'danhmucsanpham'));
 });
 
 Route::get('dinh-duong-quy', function () {
 	$sanpham = sanpham::where('Product_Cate', '3')->get();
 	$danhmuccon = danhmuccon::where('CategoryId','3')->get();
-    return view('page.sanpham', compact('sanpham', 'danhmuccon'));
+    $danhmucsanpham = danhmucsanpham::where('id', '3')->first();
+    return view('page.sanpham', compact('sanpham', 'danhmuccon', 'danhmucsanpham'));
 });
 
 Route::get('kien-thuc', function () {
 	$kienthuc = kienthuc::orderBy('id', 'DESC')->paginate(9);
     return view('page.kienthuc', compact('kienthuc'));
 });
+
+Route::get('san-pham/{id}/{slug}', 'pageController@getChitietsanpham')->name('chitietsanpham');
 
 Route::get('kien-thuc/{id}/{slug}', 'pageController@getChitiet')->name('chitietkienthuc');
 

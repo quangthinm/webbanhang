@@ -3,8 +3,8 @@
 <div class="breadcrumb">
 	<div class="container">
 		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li>Listing</li>
+			<li><a href="{{Route('trangchu')}}">Trang chủ</a></li>
+			<li>{{$danhmucsanpham->CategoryName}}</li>
 		</ul>
 	</div>
 </div>
@@ -28,7 +28,7 @@
 			<div class="col-md-8 col-lg-9 col-xl-9">
 				<div class="content offset-0">
 					<div class="number-of-products pull-right">33 Item(s)</div>
-					<h1 class="block-title text-left">THỰC PHẨM CHỨC NĂNG</h1>
+					<h1 class="block-title text-left">{{$danhmucsanpham->CategoryName}}</h1>
 				</div>
 				<div class="content">
 					<hr>
@@ -69,7 +69,7 @@
 						<div class="product">
 							<div class="product_inside">
 								<div class="image-box">
-									<a href="product.html">
+									<a href="san-pham/{{$sp->id}}/{{$sp->Slug}}.html">
 									<img src="asset/products/{{$sp->Product_Img}}" alt="">
 									</a>
 									<a href="#" data-toggle="modal" data-target="#ModalquickView" class="quick-view">
@@ -79,7 +79,7 @@
 									</a>
 								</div>
 								<h2 class="title">
-									<a href="product.html">{{$sp->Product_name}}</a>
+									<a href="san-pham/{{$sp->id}}/{{$sp->Slug}}.html">{{$sp->Product_name}}</a>
 								</h2>
 								<div class="price">
 									{{number_format($sp->Product_Price)}}

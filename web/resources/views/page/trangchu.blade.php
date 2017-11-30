@@ -52,11 +52,11 @@
 		<h1 class="block-title">SẢN PHẨM</h1>
 		<div class="row product-listing carousel-products-mobile products-mobile-arrow">
 			@foreach($sanpham as $sp)
-			<div class="col-xs-6 col-sm-4 col-md-3 ">
+			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<div class="product">
 					<div class="product_inside">
 						<div class="image-box">
-							<a href="product.html">
+							<a href="san-pham/{{$sp->id}}/{{$sp->Slug}}.html">
 								<img src="asset/products/{{$sp->Product_Img}}" alt="">
 								<div class="label-new">New</div>
 							</a>
@@ -65,7 +65,7 @@
 							</a>
 						</div>
 						<h2 class="title">
-							<a href="product.html">{{$sp->Product_name}}</a>
+							<a href="san-pham/{{$sp->id}}/{{$sp->Slug}}.html">{{$sp->Product_name}}</a>
 						</h2>
 						<div class="price view">
 							{{number_format($sp->Product_Price)}}

@@ -9,6 +9,11 @@ use App\danhmuccon;
 
 class sanphamController extends Controller
 {
+     public function danhsachsanpham()
+    {
+        return $this->hasOne('App\danhsachsanpham');
+    }
+
     public function getDanhsach()
     {
     	$danhsachsanpham = sanpham::orderBy('id', 'DESC')->get();
