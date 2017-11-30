@@ -68,7 +68,7 @@
 							<a href="san-pham/{{$sp->id}}/{{$sp->Slug}}.html">{{$sp->Product_name}}</a>
 						</h2>
 						<div class="price view">
-							{{number_format($sp->Product_Price)}}
+							{{number_format($sp->Product_Price)}} VNĐ
 						</div>
 					</div>
 				</div>
