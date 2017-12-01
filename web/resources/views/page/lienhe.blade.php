@@ -46,18 +46,31 @@
 			</div>
 			<div class="col-sm-7 offset-98">
 				<h2 class="block-title big text-left text-capitalize">Gửi liên hệ</h2>
-				<form action="#" class="contact-form">
+			 	@if(count($errors) > 0)
+                	<div class="alert alert-danger">
+                    	@foreach($errors->all() as $err)
+                    		{{$err}}<br/>
+                    	@endforeach
+                	</div>
+                @endif
+                @if(session('thongbao'))
+                	<div class="alert alert-success">
+                    	{{session('thongbao')}}
+                	</div>
+                @endif
+				<form action="lien-he" method="POST" class="contact-form">
+					<input type="hidden" name="_token" value="{{csrf_token()}}">
 					<div class="form-group">
 						<label for="inputName">Tên</label>
-						<input type="text" class="form-control" id="inputName" placeholder="Tên">
+						<input type="text" class="form-control" id="inputName" name="inputName" placeholder="Tên">
 					</div>
 					<div class="form-group">
 						<label for="inputEmail">E-mail</label>
-						<input type="text" class="form-control" id="inputEmail" placeholder="E-mail">
+						<input type="text" class="form-control" id="inputEmail" name="inputEmail" placeholder="E-mail">
 					</div>
 					<div class="form-group">
-						<label for="inputName">Nội dung</label>
-						<textarea  class="form-control" rows="8" placeholder="Nội dung"  id="textareaMessage"></textarea>
+						<label for="inputContent">Nội dung</label>
+						<textarea  class="form-control" rows="8" placeholder="Nội dung"  id="inputContent" name="inputContent"></textarea>
 					</div>
 					<button class="btn" type="submit">Gửi</button>
 				</form>

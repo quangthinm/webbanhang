@@ -36,7 +36,7 @@
 		<div class="container-fluid text-center">
 			<!-- logo -->
 			<div class="logo">
-				<a href="index.html"><img src="asset/images/logo-mobile.png" alt=""/></a>
+				<a href="trang-chu"><img src="asset/images/logo-mobile.png" alt=""/></a>
 			</div>
 			<!-- /logo -->
 		</div>
@@ -63,7 +63,7 @@
 				<div class="pull-left">
 					<!-- logo -->
 					<div class="logo">
-						<a href="index.html"><img src="asset/images/logo.png" alt=""/></a>
+						<a href="trang-chu"><img src="asset/images/logo.png" alt=""/></a>
 					</div>
 					<!-- /logo -->
 				</div>

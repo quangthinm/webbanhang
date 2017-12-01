@@ -17,7 +17,10 @@ use App\slide;
 use App\danhmucsanpham;
 
 Route::get('/', function () {
-    return view('welcome');
+    $sanpham = sanpham::limit(8)->get();
+	$kienthuc = kienthuc::limit(3)->orderBy('id', 'DESC')->get();
+	$slide = slide::all();
+    return view('page.trangchu', compact('sanpham', 'kienthuc', 'slide'));
 });
 
 Route::get('trang-chu', function () {
@@ -65,9 +68,15 @@ Route::get('gioi-thieu', function () {
 Route::get('lien-he', function () {
     return view('page.lienhe');
 });
+Route::post('lien-he', 'pageController@postContact');
+
+Route::get('admin/dang-nhap', 'userController@getLogin');
+Route::post('admin/dang-nhap', 'userController@postLogin');
+
+Route::get('admin/dang-xuat', 'userController@getLogout');
 
 //admin routes
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'adminlogin'],function(){
 	Route::get('trang-chu', function () {
 	    return view('admin.trangchu');
 	});
@@ -167,5 +176,23 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::post('sua/{id}','slideController@postSua');
 
 		Route::get('xoa/{id}','slideController@getXoa');
+	});
+
+	Route::group(['prefix'=>'user'],function(){
+		Route::get('danh-sach','userController@getDanhsach')->name('danhsachuser');
+
+		Route::get('them','userController@getThem')->name('themuser');
+		Route::post('them','userController@postThem');
+
+		Route::get('sua/{id}','userController@getSua');
+		Route::post('sua/{id}','userController@postSua');
+
+		Route::get('xoa/{id}','userController@getXoa');
+	});
+
+	Route::group(['prefix'=>'lienhe'],function(){
+		Route::get('danhsach', 'pageController@getContact')->name('danhsachcontact');
+
+		Route::get('xoa/{id}', 'pageController@xoalienhe');
 	});
 });
