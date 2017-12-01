@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2017 lúc 10:43 AM
+-- Thời gian đã tạo: Th12 01, 2017 lúc 11:29 AM
 -- Phiên bản máy phục vụ: 10.1.28-MariaDB
 -- Phiên bản PHP: 7.1.11
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `webbanhang`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `name` varchar(225) DEFAULT NULL,
+  `email` varchar(225) DEFAULT NULL,
+  `content` longtext,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `email`, `content`, `created_at`, `updated_at`) VALUES
+(3, 'thiện', 'quangthinm@gmail.com', 'ưqe', '2017-12-01 10:16:13', '2017-12-01 10:16:13');
 
 -- --------------------------------------------------------
 
@@ -222,9 +244,9 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `Product_name`, `Slug`, `Product_Price`, `Product_Derc`, `Product_Detail`, `Product_Img`, `Product_Cate`, `Product_SubCate`) VALUES
 (1, 'Nước uống đẹp da Be-Max 2020', 'nuoc-uong-dep-da-be-max-2020', 3500000, 'Nước uống Be-Max 2020 bổ sung 125 dưỡng chất giúp tăng cường sức đề kháng, tái tạo năng lượng, chống lại gốc tự do gây lão hoá, thiết lập lại mạng lưới collagen bên trong cơ thể giúp tổ chức cấu tạo tế bào trở nên vững chắc và khoẻ mạnh.', NULL, 'timthumb.jpg', 2, 5),
 (4, 'Viên uống trắng da Crystal Tomato', 'vien-uong-trang-da-crystal-tomato', 5000000, 'Crystal Tomato là sản phẩm đột phá trong công nghệ dưỡng trắng da, bổ sung những tinh chất giúp dưỡng trắng da từ sâu bên trong.', NULL, 'aMFRk5-vien-uong-trang-da.jpg', 2, 5),
-(7, 'Viên uống chống nắng Be-Max The Sun', 'vien-uong-chong-nang-be-max-the-sun', 2000000, 'Viên uống chống nắng Be-Max The Sun mang đến giải pháp hoàn hảo giúp da bạn chống lại tác hại của ánh nắng mặt trời, đem đến cho bạn làn da trắng sáng, khỏe mạnh.', NULL, 'RxhUR8-vien-uong-chong-nang-be-max-the-sun.jpg', 2, 5),
+(7, 'Viên uống chống nắng Be-Max The Sun', 'vien-uong-chong-nang-be-max-the-sun', 2000000, '<p>Vi&ecirc;n uống chống nắng Be-Max The Sun mang đến giải ph&aacute;p ho&agrave;n hảo gi&uacute;p da bạn chống lại t&aacute;c hại của &aacute;nh nắng mặt trời, đem đến cho bạn l&agrave;n da trắng s&aacute;ng, khỏe mạnh.</p>', '<p><span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">L&agrave;n da trắng s&aacute;ng, căng mịn, cơ thể khỏe mạnh tr&agrave;n đầy năng lượng l&agrave; ti&ecirc;u ch&iacute; đ&aacute;nh gi&aacute; vẽ đẹp của người phụ nữ hiện đại. Bởi sức khỏe tốt gi&uacute;p người phụ nữ c&oacute; đủ năng lượng để ho&agrave;n th&agrave;nh tốt c&ocirc;ng việc ngo&agrave;i x&atilde; hội cũng như chăm lo trọn vẹn cho gia đ&igrave;nh th&acirc;n y&ecirc;u của m&igrave;nh. Để c&oacute; được 2 điều tr&ecirc;n ph&aacute;i đẹp cần phải c&oacute; sự quan t&acirc;m chăm s&oacute;c đ&uacute;ng mức cho sức khỏe v&agrave; sắc đẹp.</span><br />\r\n<br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">Nước uống đẹp da Be-Max 2020 được sản xuất theo c&ocirc;ng nghệ hiện đại của Nhật bởi C&ocirc;ng ty Be-max với mong muốn phụ nữ hiện đại lu&ocirc;n xinh đẹp, khỏe mạnh v&agrave; hạnh ph&uacute;c hơn trong cuộc sống.</span><br />\r\n<br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">Sản phẩm l&agrave; sự kết hợp của 125 loại tinh chất l&agrave;m đẹp v&agrave; chống l&atilde;o h&oacute;a, l&agrave; bước đột ph&aacute; trong việc bảo vệ sức khỏe, cải thiện vẻ ngo&agrave;i trẻ trung, xinh đẹp, chống lại gốc tự do g&acirc;y l&atilde;o h&oacute;a, thiết lập mạng lưới collagen b&ecirc;n trong cơ thể gi&uacute;p cấu tạo tế b&agrave;o da trở n&ecirc;n vững chắc, khỏe mạnh.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">&nbsp;</span><br />\r\n<span style=\"color:rgb(218, 165, 32); font-family:tahoma,geneva,sans-serif; font-size:15px\"><span style=\"font-size:14px\"><strong>Th&agrave;nh phần của nước uống đẹp da Be-Max 2020</strong></span></span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- ECM, 88 loại thảo mộc, c&aacute;c loại vitamin B từ c&uacute;c la m&atilde; v&agrave; l&aacute; hạt nho</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Tinh chất l&agrave;m đẹp da v&agrave; cơ thể: &nbsp;Yến, nhai thai ngựa, collagen c&aacute; hồi, s&acirc;m đỏ 6 tuổi, bột ngọc trai, mai r&ugrave;a, baba</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Hyaluronic Acid (HA) l&agrave; dưỡng chất gi&uacute;p dưỡng ẩm, căng đầy v&agrave; chống l&atilde;o h&oacute;a hữu hiệu.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- HA c&oacute; trong đậu phụ v&agrave; đậu n&agrave;nh, vốn chứa nhiều ph&acirc;n tử estrogen gi&uacute;p k&iacute;ch th&iacute;ch qu&aacute; tr&igrave;nh sản sinh HA từ nhi&ecirc;n của cơ thể.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- HA kh&ocirc;ng chỉ ứng dụng v&agrave;o c&ocirc;ng nghệ sản xuất mỹ phẩm m&agrave; c&ograve;n cả trong phẩu thuật thẩm mỹ. HA thường được d&ugrave;ng như một dạng bơm l&agrave;m đầy cho m&ocirc;i, độn cằm V-line, trẻ h&oacute;a da.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Chiết xuất từ c&aacute;c loại rau củ, nấm, h&agrave;nh, củ cải đường, nấm trắng v&agrave; l&ecirc;n men c&aacute;c loại, h&agrave;nh t&acirc;y, c&agrave; rốt, m&ugrave;i t&acirc;y, bắp cải, gi&aacute; đỗ&hellip;</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Chiết xuất từ c&aacute;c loại rau quả nhiệt đới như t&aacute;o, dứa, nho, mận, sung, mơ, bưởi, dưa hấu , chanh, qu&yacute;t, t&aacute;o t&agrave;u,&hellip;</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">&nbsp;</span><br />\r\n<span style=\"color:rgb(218, 165, 32); font-family:tahoma,geneva,sans-serif; font-size:15px\"><span style=\"font-size:14px\"><strong>C&ocirc;ng dụng của nước uống đẹp da Be-Max 2020</strong></span></span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Tinh chất l&agrave;m đẹp da từ b&ecirc;n trong với 125 th&agrave;nh phần tinh t&uacute;y cho l&agrave;n da phục hồi từ b&ecirc;n trong s&aacute;ng trắng, căng mịn v&agrave; hồng tươi.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Tăng cường th&uacute;c đẩy khả năng tự hoạt động của tế b&agrave;o (đ&agrave;o thải chất cặn b&atilde; v&agrave; hấp thụ dinh dưỡng)</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- ECM l&agrave; m&ocirc; lien kết (chất ngoại b&agrave;o) cấu tạo bởi 1 trong 3 loại ph&acirc;n từ sinh học l&agrave; Protein cấu tr&uacute;c (Collagen v&agrave; elastin). ECM bảo vệ, duy tr&igrave; collagen v&agrave; sợi đ&agrave;n hồi trước nguy cơ dể ph&acirc;n hủy v&agrave; thiếu li&ecirc;n kết tạo độ săn chắc, trẻ h&oacute;a cho l&agrave;n da v&agrave; quan trọng hơn cả collagen.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Điều chỉnh nội tiết cơ thể c&acirc;n bằng v&agrave; khỏe mạnh, hỗ trợ đặc biệt cho phụ nữ</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Hỗ trợ chống đau, thiếu chất nhầy xương khớp</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- C&acirc;n bằng v&agrave; th&uacute;c đẩy c&aacute;c chức năng tự nhi&ecirc;n gi&uacute;p t&aacute;i tạo tế b&agrave;o mới.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">&nbsp;</span><br />\r\n<span style=\"color:rgb(218, 165, 32); font-family:tahoma,geneva,sans-serif; font-size:15px\"><span style=\"font-size:14px\"><strong>C&aacute;ch d&ugrave;ng nước uống đẹp da Be-Max 2020</strong></span></span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Sử dụng 1 ống/ng&agrave;y trong th&aacute;ng đầu ti&ecirc;n.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Sử dụng 1 ống/2 ng&agrave;y trong th&aacute;ng thứ 2.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- D&ugrave;ng 1 ống/3 ng&agrave;y trong th&aacute;ng thứ 3.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Sau 6 th&aacute;ng th&igrave; bắt đầu d&ugrave;ng lại lộ tr&igrave;nh tr&ecirc;n.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Vặn ống Nước uống đẹp da Be-Max 2020 ra uống trực tiếp sau khi để lạnh hoặc cho ra cốc pha th&ecirc;m với đ&aacute;. Kh&ocirc;ng uống v&agrave;o buổi tối.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">&nbsp;</span><br />\r\n<span style=\"color:rgb(218, 165, 32); font-family:tahoma,geneva,sans-serif; font-size:15px\"><span style=\"font-size:14px\"><strong>Ưu điểm của Be-max 2020</strong></span></span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hiện tại duy nhất ECM c&oacute; nhứng nhận th&agrave;nh phần khoa học bởi c&aacute;c ph&acirc;n tử nhỏ ECM thẩm thấu được v&agrave;o cơ thể v&igrave; ECM rất kh&oacute; thẩm thấu v&agrave; duy tr&igrave;, dể bị ph&acirc;n hủy</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ECM bao quanh c&aacute;c tế b&agrave;o được v&iacute; như vừa giữa c&aacute;c vi&ecirc;n gạch, bảo vệ, duy tr&igrave; lien kết collagen v&agrave; sợi đ&agrave;n hồi bởi HA (Hyaluronic acid) &ndash; chất l&agrave;m căng mượt, săn chắc, trẻ h&oacute;a cho l&agrave;n da.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ECM cung cấp đủ collagen, eslatin, Hyaluronic acid trong 1 sản phẩm duy nhất</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">&nbsp;</span><br />\r\n<span style=\"color:rgb(218, 165, 32); font-family:tahoma,geneva,sans-serif; font-size:15px\"><span style=\"font-size:14px\"><strong>Đối tượng sử dụng</strong></span></span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Nam v&agrave; nữ giới.</span><br />\r\n<span style=\"color:rgb(64, 64, 64); font-family:tahoma,geneva,sans-serif; font-size:15px\">- Đối với phụ nữ c&oacute; thai, phải xin &yacute; kiến b&aacute;c sĩ.</span></p>', 'RxhUR8-vien-uong-chong-nang-be-max-the-sun.jpg', 2, 5),
 (8, 'Viên uống trắng da Beauty Skin', 'vien-uong-trang-da-beauty-skin', 900000, 'Viên uống trắng da BEAUTY SKIN là sự kết hợp các công nghệ tiên tiến nhất có các thành phần hoạt tính làm ức chế enzyme tham gia vào quá trình sản xuất melanin từ đó giúp kiểm soát sự hình thành hắc sắc tố, gia tăng độ ẩm, độ đàn hồi của da cho bạn làn da trắng sáng mịn màng.', NULL, 'gMBJVj-vien-uong-trang-da-beauty-skin.jpg', 2, 5),
-(9, 'Trà thải độc cơ thể', 'giam-can/tra-thai-doc-co-the', 47000, 'Trà thải độc cơ thể hay còn gọi là trà thải độc ruột nature\'s tea - loại bỏ những cặn bã thức ăn bám vào thành ruột, giúp hạn hạn chế được bệnh tật.', NULL, 'PsJ79n-tra-thai-doc-co-the.jpg', 1, 1),
+(9, 'Trà thải độc cơ thể', 'giam-can-tra-thai-doc-co-the', 47000, '<p>Tr&agrave; thải độc cơ thể hay c&ograve;n gọi l&agrave; tr&agrave; thải độc ruột nature&#39;s tea - loại bỏ những cặn b&atilde; thức ăn b&aacute;m v&agrave;o th&agrave;nh ruột, gi&uacute;p hạn hạn chế được bệnh tật.</p>', NULL, 'PsJ79n-tra-thai-doc-co-the.jpg', 1, 1),
 (10, 'Viên giảm cân 30 Days Waistline', 'vien-giam-can-30-days-waistline', 1500000, 'Viên giảm cân 30 Days Waistline giúp bạn đánh tan mỡ vùng bụng hiệu quả, đem lại cho bạn eo thon gọn chỉ trong 30 ngày. Giải pháp đột phá trong việc giảm cân một cách lành mạnh và tự nhiên', NULL, 'MUoLF0-vien-giam-can-30-days-waistline.jpg', 1, 1),
 (11, 'Giảm cân Slimming Aid Formula', 'giam-can-slimming-aid-formula', 1000000, 'Giảm cân Slimming Aid Formula giúp tăng cường chuyển hóa mỡ trong cơ thể, giúp giảm cholesterol và lipid máu, hỗ trợ giảm cân', NULL, 'pqydE6-giam-can-slimming-aid-formula.jpg', 1, 1),
 (12, 'Nước uống giảm cân Be-Max Shaper', 'nuoc-uong-giam-can-be-max-shaper', 1800000, 'Be-Max Shaper bổ sung nhiều dưỡng chất quý giá giúp duy trì vóc dáng thon gọn cùng vòng eo săn chắc, ngăn ngừa tái tạo mỡ thừa, giúp cơ thể và làn da luôn căng tràn sức sống.', NULL, 'JLuMOW-nuoc-uong-giam-can-be-max-shaper.jpg', 1, 1);
@@ -296,28 +318,35 @@ INSERT INTO `slide` (`id`, `slide_derc`, `slide_img`, `slide_status`) VALUES
 --
 
 CREATE TABLE `users` (
-  `UserID` int(11) NOT NULL,
-  `UserEmail` varchar(500) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserPassword` varchar(500) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserFirstName` varchar(50) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserLastName` varchar(50) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserCity` varchar(90) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserState` varchar(20) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserZip` varchar(12) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserEmailVerified` tinyint(1) DEFAULT '0',
-  `UserRegistrationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `UserVerificationCode` varchar(20) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserIP` varchar(50) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserPhone` varchar(20) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserFax` varchar(20) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserCountry` varchar(20) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserAddress` varchar(100) COLLATE latin1_german2_ci DEFAULT NULL,
-  `UserAddress2` varchar(50) COLLATE latin1_german2_ci DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `user_name` varchar(225) COLLATE latin1_german2_ci DEFAULT NULL,
+  `user_email` varchar(225) COLLATE latin1_german2_ci DEFAULT NULL,
+  `password` varchar(225) COLLATE latin1_german2_ci DEFAULT NULL,
+  `user_role` int(11) DEFAULT NULL,
+  `remember_token` varchar(225) COLLATE latin1_german2_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german2_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `user_name`, `user_email`, `password`, `user_role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(8, 'quangthien', 'a886187@gmail.com', '$2y$10$tBOg9BMBe0hsBTKiRvLZy.b6.yjl5HVf8FoFLXyZZ9Cor97iPFohm', 0, 'V7b1qZum3gRkXv2VBwjBx071nXWwT1Btv8eOwbgH3sBcSX1aoZbpIG8jttKX', '2017-12-01 08:27:40', '2017-12-01 08:27:40'),
+(6, 'admin', 'quangthinm@gmail.com', '$2y$10$g1b/OASFeTZd9x.xs78fQO18c0zCwoUzYFOyNJWJVRPoS5fomiCUq', 0, 'roPj3NPV5HkpuhzT5pLPjMAVR7pq18AgG8VkLZWWeH9x7uC1Dus2YQ8wXgOF', '2017-12-01 07:59:07', '2017-12-01 07:59:07'),
+(10, 'shenni', 'ad@gmail.com', '$2y$10$NDxgjnQyEmefd8EGvbPpXeuAdEHhAGG2ZbEmUNUujwkSCuBljKpVC', 1, 'ZWBc0MUZCjArz0jlbFx0Z6BaL9NYrl7ER0UBLmiyXIQJoMsAEhvtSyFlLQgn', '2017-12-01 08:57:22', '2017-12-01 08:58:27'),
+(11, 'abc', 'ada@gmail.com', '$2y$10$Rj2wY1JgsQYgA17khkiNiu18hhpXHN2yvScPHUIAHujb5x.V1MO5q', 1, NULL, '2017-12-01 09:11:03', '2017-12-01 09:11:03');
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `migrations`
@@ -389,11 +418,17 @@ ALTER TABLE `slide`
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`UserID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
+
+--
+-- AUTO_INCREMENT cho bảng `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -465,7 +500,7 @@ ALTER TABLE `slide`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
