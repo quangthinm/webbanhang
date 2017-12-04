@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2017 lúc 11:29 AM
+-- Thời gian đã tạo: Th12 04, 2017 lúc 10:29 AM
 -- Phiên bản máy phục vụ: 10.1.28-MariaDB
 -- Phiên bản PHP: 7.1.11
 
@@ -21,6 +21,56 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `webbanhang`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `bill`
+--
+
+CREATE TABLE `bill` (
+  `id` int(11) NOT NULL,
+  `id_customer` int(11) DEFAULT NULL,
+  `date_order` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `bill`
+--
+
+INSERT INTO `bill` (`id`, `id_customer`, `date_order`, `created_at`, `updated_at`) VALUES
+(2, 5, '2004-12-17 00:00:00', '2017-12-04 08:04:25', '2017-12-04 08:04:25'),
+(3, 6, '2004-12-17 00:00:00', '2017-12-04 09:27:52', '2017-12-04 09:27:52');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `billdetails`
+--
+
+CREATE TABLE `billdetails` (
+  `id` int(11) NOT NULL,
+  `id_bill` int(11) DEFAULT NULL,
+  `id_product` int(11) DEFAULT NULL,
+  `quanlity` int(11) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `billdetails`
+--
+
+INSERT INTO `billdetails` (`id`, `id_bill`, `id_product`, `quanlity`, `price`, `created_at`, `updated_at`) VALUES
+(3, 2, 10, 3, 1500000, '2017-12-04 08:04:25', '2017-12-04 08:04:25'),
+(4, 2, 11, 3, 1000000, '2017-12-04 08:04:25', '2017-12-04 08:04:25'),
+(5, 3, 10, 2, 1500000, '2017-12-04 09:27:52', '2017-12-04 09:27:52'),
+(6, 3, 9, 1, 47000, '2017-12-04 09:27:52', '2017-12-04 09:27:52'),
+(7, 3, 7, 1, 2000000, '2017-12-04 09:27:52', '2017-12-04 09:27:52'),
+(8, 3, 8, 1, 900000, '2017-12-04 09:27:52', '2017-12-04 09:27:52');
 
 -- --------------------------------------------------------
 
@@ -43,6 +93,31 @@ CREATE TABLE `contact` (
 
 INSERT INTO `contact` (`id`, `name`, `email`, `content`, `created_at`, `updated_at`) VALUES
 (3, 'thiện', 'quangthinm@gmail.com', 'ưqe', '2017-12-01 10:16:13', '2017-12-01 10:16:13');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `customer`
+--
+
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL,
+  `name` varchar(225) DEFAULT NULL,
+  `email` varchar(225) DEFAULT NULL,
+  `phone` varchar(225) DEFAULT NULL,
+  `address` varchar(225) DEFAULT NULL,
+  `city` varchar(225) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `customer`
+--
+
+INSERT INTO `customer` (`id`, `name`, `email`, `phone`, `address`, `city`, `created_at`, `updated_at`) VALUES
+(5, 'thien', 'quangthinm@gmail.com', '1696271312', '123, 456', 'Pretzschendorf', '2017-12-04 08:04:25', '2017-12-04 08:04:25'),
+(6, 'Patrick Eddy', 'quangthinm@gmail.com', '1696271312', '123, 456', 'Pretzschendorf', '2017-12-04 09:27:52', '2017-12-04 09:27:52');
 
 -- --------------------------------------------------------
 
@@ -126,49 +201,6 @@ INSERT INTO `options` (`OptionID`, `OptionGroupID`, `OptionName`) VALUES
 (6, 2, 'L'),
 (7, 2, 'XL'),
 (8, 2, 'XXL');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `orderdetails`
---
-
-CREATE TABLE `orderdetails` (
-  `DetailID` int(11) NOT NULL,
-  `DetailOrderID` int(11) NOT NULL,
-  `DetailProductID` int(11) NOT NULL,
-  `DetailName` varchar(250) COLLATE latin1_german2_ci NOT NULL,
-  `DetailPrice` float NOT NULL,
-  `DetailSKU` varchar(50) COLLATE latin1_german2_ci NOT NULL,
-  `DetailQuantity` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german2_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `orders`
---
-
-CREATE TABLE `orders` (
-  `OrderID` int(11) NOT NULL,
-  `OrderUserID` int(11) NOT NULL,
-  `OrderAmount` float NOT NULL,
-  `OrderShipName` varchar(100) COLLATE latin1_german2_ci NOT NULL,
-  `OrderShipAddress` varchar(100) COLLATE latin1_german2_ci NOT NULL,
-  `OrderShipAddress2` varchar(100) COLLATE latin1_german2_ci NOT NULL,
-  `OrderCity` varchar(50) COLLATE latin1_german2_ci NOT NULL,
-  `OrderState` varchar(50) COLLATE latin1_german2_ci NOT NULL,
-  `OrderZip` varchar(20) COLLATE latin1_german2_ci NOT NULL,
-  `OrderCountry` varchar(50) COLLATE latin1_german2_ci NOT NULL,
-  `OrderPhone` varchar(20) COLLATE latin1_german2_ci NOT NULL,
-  `OrderFax` varchar(20) COLLATE latin1_german2_ci NOT NULL,
-  `OrderShipping` float NOT NULL,
-  `OrderTax` float NOT NULL,
-  `OrderEmail` varchar(100) COLLATE latin1_german2_ci NOT NULL,
-  `OrderDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `OrderShipped` tinyint(1) NOT NULL DEFAULT '0',
-  `OrderTrackingNumber` varchar(80) COLLATE latin1_german2_ci DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german2_ci;
 
 -- --------------------------------------------------------
 
@@ -334,7 +366,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user_name`, `user_email`, `password`, `user_role`, `remember_token`, `created_at`, `updated_at`) VALUES
 (8, 'quangthien', 'a886187@gmail.com', '$2y$10$tBOg9BMBe0hsBTKiRvLZy.b6.yjl5HVf8FoFLXyZZ9Cor97iPFohm', 0, 'V7b1qZum3gRkXv2VBwjBx071nXWwT1Btv8eOwbgH3sBcSX1aoZbpIG8jttKX', '2017-12-01 08:27:40', '2017-12-01 08:27:40'),
-(6, 'admin', 'quangthinm@gmail.com', '$2y$10$g1b/OASFeTZd9x.xs78fQO18c0zCwoUzYFOyNJWJVRPoS5fomiCUq', 0, 'roPj3NPV5HkpuhzT5pLPjMAVR7pq18AgG8VkLZWWeH9x7uC1Dus2YQ8wXgOF', '2017-12-01 07:59:07', '2017-12-01 07:59:07'),
+(6, 'admin', 'quangthinm@gmail.com', '$2y$10$g1b/OASFeTZd9x.xs78fQO18c0zCwoUzYFOyNJWJVRPoS5fomiCUq', 0, 'GOCTfqfSnWB4Z29KUDNcM3bqvIiiU27JHlxafLqFzxKcOgZanCC68IAVnZhG', '2017-12-01 07:59:07', '2017-12-01 07:59:07'),
 (10, 'shenni', 'ad@gmail.com', '$2y$10$NDxgjnQyEmefd8EGvbPpXeuAdEHhAGG2ZbEmUNUujwkSCuBljKpVC', 1, 'ZWBc0MUZCjArz0jlbFx0Z6BaL9NYrl7ER0UBLmiyXIQJoMsAEhvtSyFlLQgn', '2017-12-01 08:57:22', '2017-12-01 08:58:27'),
 (11, 'abc', 'ada@gmail.com', '$2y$10$Rj2wY1JgsQYgA17khkiNiu18hhpXHN2yvScPHUIAHujb5x.V1MO5q', 1, NULL, '2017-12-01 09:11:03', '2017-12-01 09:11:03');
 
@@ -343,9 +375,27 @@ INSERT INTO `users` (`id`, `user_name`, `user_email`, `password`, `user_role`, `
 --
 
 --
+-- Chỉ mục cho bảng `bill`
+--
+ALTER TABLE `bill`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `billdetails`
+--
+ALTER TABLE `billdetails`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `contact`
 --
 ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `customer`
+--
+ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -371,18 +421,6 @@ ALTER TABLE `optiongroups`
 --
 ALTER TABLE `options`
   ADD PRIMARY KEY (`OptionID`);
-
---
--- Chỉ mục cho bảng `orderdetails`
---
-ALTER TABLE `orderdetails`
-  ADD PRIMARY KEY (`DetailID`);
-
---
--- Chỉ mục cho bảng `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`OrderID`);
 
 --
 -- Chỉ mục cho bảng `productcategories`
@@ -425,10 +463,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `bill`
+--
+ALTER TABLE `bill`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `billdetails`
+--
+ALTER TABLE `billdetails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT cho bảng `contact`
 --
 ALTER TABLE `contact`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -453,18 +509,6 @@ ALTER TABLE `optiongroups`
 --
 ALTER TABLE `options`
   MODIFY `OptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT cho bảng `orderdetails`
---
-ALTER TABLE `orderdetails`
-  MODIFY `DetailID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `orders`
---
-ALTER TABLE `orders`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `productcategories`
